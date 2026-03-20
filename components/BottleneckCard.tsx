@@ -44,6 +44,7 @@ export function BottleneckCard({ bottleneck }: BottleneckCardProps) {
             transition={{ duration: 1, ease: 'easeOut' }}
             className={`absolute left-0 top-0 h-full ${bottleneck.barClass}`}
             role="progressbar"
+            aria-label="Procenat uskog grla"
             aria-valuenow={bottleneck.percent}
             aria-valuemin={0}
             aria-valuemax={100}
