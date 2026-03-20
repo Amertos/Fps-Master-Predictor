@@ -1,0 +1,5 @@
+{
+  "name": "FPS Master Predictor",
+  "description": "A web tool to predict FPS for various games based on PC hardware configurations.",
+  "requestFramePermissions": []
+}
