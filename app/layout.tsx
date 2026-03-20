@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'FPS Master Predictor - Kalkulator za PC preformanse',
     description: 'Besplatan alat za testiranje kako će tvoj PC pokretati najnovije video igre. Proveri FPS i pronađi usko grlo (bottleneck).',
-    url: 'https://fps-master-predictor.com', // Napomena: zamenite domen ako imate pravi
+    url: 'https://fps-master-predictor.netlify.app',
     siteName: 'FPS Master Predictor',
     images: [
       {
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     apple: '/apple-icon.png',
   },
   alternates: {
-    canonical: 'https://fps-master-predictor.com',
+    canonical: 'https://fps-master-predictor.netlify.app',
   },
 };
 
@@ -73,7 +73,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     name: 'FPS Master Predictor',
-    url: 'https://fps-master-predictor.com',
+    url: 'https://fps-master-predictor.netlify.app',
     description: 'Saznaj i predvidi kako će igrice raditi na tvom kompjuteru. Izračunaj FPS i detektuj bottleneck.',
     applicationCategory: 'UtilityApplication',
     operatingSystem: 'Windows, macOS, Linux, Android, iOS',
