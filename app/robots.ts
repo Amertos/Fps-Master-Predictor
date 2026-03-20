@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://fps-master-predictor.netlify.app/sitemap.xml',
+    sitemap: 'https://fps-predictor.netlify.app/sitemap.xml',
   };
 }
