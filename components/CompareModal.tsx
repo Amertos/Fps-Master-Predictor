@@ -5,16 +5,8 @@ import { motion } from 'motion/react';
 import { X, ArrowRightLeft, Cpu, Monitor, HardDrive } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { SavedBuild, TierName } from '@/lib/types';
-import { Crown, Trophy, Rocket, Swords, Star, Snail } from 'lucide-react';
+import { TIER_ICONS } from '@/lib/tier-icons';
 
-const TIER_ICONS: Record<TierName, React.ElementType> = {
-  'God Tier':    Crown,
-  'Enthusiast':  Trophy,
-  'High-End':    Rocket,
-  'Mid-Range':   Swords,
-  'Entry-Level': Star,
-  'Potato':      Snail,
-};
 
 interface CompareModalProps {
   builds: [SavedBuild, SavedBuild];

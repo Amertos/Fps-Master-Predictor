@@ -5,7 +5,6 @@ import { motion } from 'motion/react';
 import { cn } from '@/lib/utils';
 import type { CompareDataPoint } from '@/lib/types';
 
-const MAX_FPS_SCALE = 200;
 
 interface CompareChartProps {
   title: string;
@@ -22,6 +21,8 @@ const ACCENT_CLASSES: Record<NonNullable<CompareChartProps['accentColor']>, { ac
 
 export function CompareChart({ title, data, accentColor = 'green', delay = 0 }: CompareChartProps) {
   const { active: activeText, bar: activeBar } = ACCENT_CLASSES[accentColor];
+  // Dynamic scale: bar widths are relative to the highest FPS in the current dataset
+  const maxFps = Math.max(...data.map((d) => d.fps), 1);
 
   return (
     <motion.div
@@ -38,7 +39,7 @@ export function CompareChart({ title, data, accentColor = 'green', delay = 0 }: 
       <div className="space-y-3" role="list" aria-label={title}>
         {data.map((point) => {
           const isActive = !!point.isCurrent;
-          const barWidth = Math.min(100, (point.fps / MAX_FPS_SCALE) * 100);
+          const barWidth = Math.round((point.fps / maxFps) * 100);
 
           return (
             <div key={point.name} className="group flex items-center justify-between" role="listitem">

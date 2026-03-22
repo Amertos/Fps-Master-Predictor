@@ -3,19 +3,9 @@
 import React from 'react';
 import { Cpu, Monitor, HardDrive, Trash2, ArrowRightLeft } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import type { SavedBuild, TierName } from '@/lib/types';
-import {
-  Crown, Trophy, Rocket, Swords, Star, Snail,
-} from 'lucide-react';
+import type { SavedBuild } from '@/lib/types';
+import { TIER_ICONS } from '@/lib/tier-icons';
 
-const TIER_ICONS: Record<TierName, React.ElementType> = {
-  'God Tier':   Crown,
-  'Enthusiast': Trophy,
-  'High-End':   Rocket,
-  'Mid-Range':  Swords,
-  'Entry-Level': Star,
-  'Potato':     Snail,
-};
 
 interface BuildCardProps {
   build: SavedBuild;

@@ -3,9 +3,7 @@
 import React, { useState, useCallback } from 'react';
 import { motion } from 'motion/react';
 import { Zap, Cpu, Monitor, HardDrive, Gamepad2 } from 'lucide-react';
-import {
-  Crown, Trophy, Rocket, Swords, Star, Snail,
-} from 'lucide-react';
+import { TIER_ICONS } from '@/lib/tier-icons';
 
 // Hooks
 import { useFpsResult }  from '@/hooks/useFpsResult';
@@ -26,18 +24,9 @@ import { Toast }            from '@/components/Toast';
 // Data & Types
 import { GAMES, CPUS, GPUS, RAM_CAPACITIES, RAM_TYPES, RESOLUTIONS, PRESETS } from '@/lib/data';
 import { buildShareText } from '@/lib/fps-engine';
-import type { TierName } from '@/lib/types';
 
 // ─── Tier icon map ─────────────────────────────────────────────────────────────
-
-const TIER_ICONS: Record<TierName, React.ElementType> = {
-  'God Tier':    Crown,
-  'Enthusiast':  Trophy,
-  'High-End':    Rocket,
-  'Mid-Range':   Swords,
-  'Entry-Level': Star,
-  'Potato':      Snail,
-};
+// Imported from @/lib/tier-icons — single source of truth.
 
 // ─── Page ──────────────────────────────────────────────────────────────────────
 
@@ -108,8 +97,9 @@ export default function FPSMasterPredictor() {
       fps: expectedFps,
       tierName: systemTier.name,
     });
-    navigator.clipboard.writeText(text);
-    showToast('Kopirano u clipboard!');
+    navigator.clipboard.writeText(text)
+      .then(() => showToast('Kopirano u clipboard!'))
+      .catch(() => showToast('Greška — nije moguće kopirati tekst.'));
   }, [showToast, selectedGame, selectedRes, selectedPreset, selectedCpu, selectedGpu, selectedRamCap, selectedRamType, rayTracingEnabled, upscalingEnabled, expectedFps, systemTier]);
 
   const handleToggleCompare = useCallback(
